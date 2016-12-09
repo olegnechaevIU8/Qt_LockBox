@@ -7,6 +7,7 @@
 #include <boost/filesystem.hpp>
 #include <addorread.h>
 
+using namespace std;
 namespace Ui {
 class MainWindow;
 }
