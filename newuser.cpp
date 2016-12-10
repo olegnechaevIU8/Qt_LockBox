@@ -27,7 +27,7 @@ void NewUser::on_pushButton_clicked()
        string pswd = ui->password->text().toStdString();
        string pswd_repeat = ui->repeat->text().toStdString();
        if ((name == "")||(pswd == ""))
-           throw "enter the name of user and password!";
+           throw "enter the name of user and password!"; //podaetsa stroka
        path a ("passwords");
        ifstream fin((lockbox/a).string().c_str()); // открыли файл для чтения
 
@@ -42,11 +42,11 @@ void NewUser::on_pushButton_clicked()
                }
        fin.close();
         if (find)
-            throw "This user already exist.";
+            throw "This user already exist."; //podaetsa stroka
         else{
 
             if (pswd!=pswd_repeat)
-                throw "Passwords do not match.";
+                throw "Passwords do not match."; //podaetsa stroka
             pswd = PswdToHash(pswd);             //??
             ofstream fout((lockbox/a).string().c_str(), ios::app); //открыли файл для записи
             fout <<  name + " " + pswd + "\n" ;
