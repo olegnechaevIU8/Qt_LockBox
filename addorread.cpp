@@ -95,7 +95,7 @@ void AddOrRead::on_ReadFile_clicked()
     try{
         ui->listWidget->clear();
         if (ui->listWidget_2->selectedItems().empty())
-            throw "you should choose the file you want to read";
+            throw "you should choose the file you want to read"; //podaetsa stroka
 
         auto SelectedPath = ui->listWidget_2->currentItem();
 
@@ -103,7 +103,7 @@ void AddOrRead::on_ReadFile_clicked()
         QFile file(filePath);
         if (!exists(path(filePath.toStdString()))){
             delete SelectedPath;
-            throw "this file was deleted :c";
+            throw "this file was deleted :c"; //podaetsa stroka
         }
 
         QString Log(log.c_str());
@@ -127,7 +127,7 @@ void AddOrRead::on_GetFile_clicked()
     try{
         ui->listWidget->clear();
         if (ui->listWidget_2->selectedItems().empty())
-            throw "you should choose the file";
+            throw "you should choose the file"; //podaetsa stroka
 
         auto SelectedPath = ui->listWidget_2->currentItem();
 
@@ -135,7 +135,7 @@ void AddOrRead::on_GetFile_clicked()
         QFile file(filePath);
         if (!exists(path(filePath.toStdString()))){
             delete SelectedPath;
-            throw "this file was deleted :c";
+            throw "this file was deleted :c"; //podaetsa stroka
         }
 
         QString Log(log.c_str());
@@ -146,7 +146,7 @@ void AddOrRead::on_GetFile_clicked()
         QFile OutFile(OutPath);
         bool ok = OutFile.open(QIODevice::WriteOnly);
         if (!ok)
-            throw "File error";
+            throw "File error"; //podaetsa stroka
 
         QTextStream out(&OutFile);
         file.open(QIODevice::ReadOnly);
@@ -184,7 +184,7 @@ void AddOrRead::on_DeleteFile_clicked()
     try{
         ui->listWidget->clear();
         if (ui->listWidget_2->selectedItems().empty())
-            throw "you should select the file you want to remove";
+            throw "you should select the file you want to remove"; //podaetsa stroka
 
         auto SelectedPath = ui->listWidget_2->currentItem();
 
@@ -194,7 +194,7 @@ void AddOrRead::on_DeleteFile_clicked()
 
             delete SelectedPath;
             file.close();
-            throw "This file has already been removed!";
+            throw "This file has already been removed!"; //podaetsa stroka
         }
         file.remove();
         delete SelectedPath;
