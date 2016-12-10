@@ -39,7 +39,7 @@ void MainWindow::on_LogIn_clicked()
         pswd = ui->Password->text().toStdString();
         string pass = newUser->PswdToHash(pswd);
         if ((name == "")||(pswd == ""))
-            throw "enter the name of user and password!";
+            throw "enter the name of user and password!"; //podaetsa stroka
         ifstream fin(lockbox.string() +"/passwords"); // открыли файл для чтения
 
         bool find=false;
@@ -57,11 +57,11 @@ void MainWindow::on_LogIn_clicked()
         }
         fin.close();
         if (!find)
-            throw "Uncorrect login or password.";
+            throw "Uncorrect login or password."; //podaetsa stroka
 
         path a(lockbox.string()+"/"+name);
         if (!exists(a))
-            throw "Sorry! This user was deleted :(";
+            throw "Sorry! This user was deleted :("; //podaetsa stroka
 
         AOR->show();
         emit UserChange(path(name));
